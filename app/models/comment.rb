@@ -1,11 +1,5 @@
 class Comment < ApplicationRecord
+  include Visible    # includes from models/concerns
+
   belongs_to :article
-
-  VALID_STATUSES = ['public', 'private', 'archived']
-
-  validates :status, inclusion: { in: VALID_STATUSES }
-
-  def archived?
-    status == 'archived'
-  end
 end
